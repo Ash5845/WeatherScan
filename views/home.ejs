@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherScan</title>
+    <link rel="stylesheet" href="app.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body class="main">
+    <section class="logo">
+    <i class="fas fa-cloud"></i><h1 class="mainLogo">WeatherScan</h1>
+    </section>
+    <form class="search-form" action="/" method="GET">
+        <input class="search" type="text" name="location" placeholder="Enter Location" required>
+        <button type="submit" class="search-btn">Search</button>
+    </form>
+    <h2 class="title"><%=weatherData.name%></h2>
+    <section class="weatherContainer">
+        <div class="box">
+            <p>Temp </p>
+            <p><%=weatherData.main.temp%>&#730; C</p>
+        </div>
+        <div class="box">
+            <p>Feels like</p> 
+            <p><%=weatherData.main.feels_like%>&#730; C</p>
+        </div>
+        <div class="box">
+            <p>Humidity</p> 
+            <p><%=weatherData.main.humidity%>%</p>
+        </div>
+        <div class="box">
+            <p><%=weatherData.weather[0].main%></p>
+            <% if (weatherData.weather[0].main == "Clouds") { %>
+                <i class="fas fa-cloud"></i>
+            <% } else if (weatherData.weather[0].main == "Rain") { %>
+                <i class="fas fa-cloud-rain"></i>
+            <% } else if (weatherData.weather[0].main == "Drizzle"){ %>
+                <i class="fas fa-cloud-rain"></i>
+            <% } else if (weatherData.weather[0].main == "Thuderstorm"){ %>
+                <i class="fas fa-bolt"></i>
+            <% } else { %>
+                <i class="fas fa-sun"></i>
+            <% } %>
+        </div>
+    </section>
+</body>
+</html>
