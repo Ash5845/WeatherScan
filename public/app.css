@@ -231,6 +231,11 @@ Boxes
   padding: 30px;
   text-align: center;
   box-shadow: var(--lightShadow);
+  transition: transform 0.2s ease-in;
+}
+
+.box:hover {
+  transform: translateY(-15px);
 }
 
 /*
@@ -245,4 +250,19 @@ Error
 .error-container {
   text-align: center;
   text-transform: capitalize;
+}
+
+@media(max-width: 798px) {
+  .weatherContainer {
+    flex-wrap: wrap;
+  }
+  .box {
+    margin: 2rem 1rem;
+  }
+  .search-form {
+  width: 50vw;
+  }
+  .logo {
+    font-size: 25px;
+  }
 }
